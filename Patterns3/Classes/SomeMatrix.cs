@@ -8,38 +8,21 @@ namespace Patterns3
 {
     abstract class SomeMatrix : IMatrix
     {
-        private int row, col;
+        private readonly int row, col;
         private IVector[] matr;
 
         public void Draw(IDrawer drawer, bool flag)
         {
-            for (int i = 0; i < row_count; i++)
-            {
-                if (flag)
-                {
-                    drawer.DrawFrame(row_count);
-                    drawer.DrawGorFrame();
-                }
-                else
-                {
-                    drawer.DrawFrame(0);
-                }
-                for (int j = 0; j < column_count; j++)
-                {
-                    drawer.DrawCell(this.GetValue(i, j), this);
-                }
-                if (flag)
-                {
-                    drawer.DrawGorFrame();
-                }
-            }
             if (flag)
             {
-                drawer.DrawFrame(row_count);
+                drawer.DrawFrame(this);
             }
-            else
+            for (int i = 0; i < row; i++)
             {
-                drawer.DrawFrame(0);
+                for (int j = 0; j < col; j++)
+                {
+                    drawer.DrawCell(this, i, j);
+                }
             }
             drawer.DrawMatrix();
         }
@@ -68,27 +51,6 @@ namespace Patterns3
         public double GetValue(int i, int j)
         {
             return (matr[i].GetValue(j));
-        }
-
-        public void Print()
-        {
-            Console.WriteLine("______________________");
-            foreach (var item in matr)
-            {
-                Console.Write("|");
-                for (int i=0; i<item.Size; i++)
-                {
-                    Console.Write("{0,2:00}  ", item.GetValue(i));
-                    
-                }
-                Console.Write("|\n");
-            }
-            Console.WriteLine("______________________");
-        }
-
-        public IVector this[int index]
-        {
-            get { return matr[index]; }
         }
     }
 }

@@ -30,13 +30,13 @@ namespace Patterns3
             {
                 matrix = new SimpleMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
-                IDrawer drawer = new WinFormDrawer(graphics);
+                IDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
                 matrix.Draw(drawer, checkBox1.Checked);
                 last_f = "bt_SimpMatr";
             }
             else if (matrix.GetType() == typeof(SimpleMatrix))
             {
-                IDrawer drawer = new WinFormDrawer(graphics);
+                IDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
                 matrix.Draw(drawer, checkBox1.Checked);
                 last_f = "bt_SimpMatr";
             }
@@ -44,7 +44,7 @@ namespace Patterns3
             {
                 matrix = new SimpleMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
-                IDrawer drawer = new WinFormDrawer(graphics);
+                IDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
                 matrix.Draw(drawer, checkBox1.Checked);
                 last_f = "bt_SimpMatr";
             }
@@ -57,13 +57,13 @@ namespace Patterns3
             {
                 matrix = new SparseMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
-                IDrawer drawer = new WinFormDrawer(graphics);
+                IDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
                 matrix.Draw(drawer, checkBox1.Checked);
                 last_f = "bt_SpareMatr";
             }
             else if (matrix.GetType() == typeof(SparseMatrix))
             {
-                IDrawer drawer = new WinFormDrawer(graphics);
+                IDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
                 matrix.Draw(drawer, checkBox1.Checked);
                 last_f = "bt_SpareMatr";
             }
@@ -71,7 +71,7 @@ namespace Patterns3
             {
                 matrix = new SparseMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
-                IDrawer drawer = new WinFormDrawer(graphics);
+                IDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
                 matrix.Draw(drawer, checkBox1.Checked);
                 last_f = "bt_SpareMatr";
             }

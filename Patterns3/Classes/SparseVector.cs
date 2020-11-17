@@ -7,7 +7,7 @@ namespace Patterns3
     class SparseVector : IVector
     {
         private List<double> val;
-        private int size;
+        private readonly int size;
 
         public int Size { get { return size; } }
 
@@ -21,30 +21,14 @@ namespace Patterns3
             }
         }
 
-        public List<double> GetAllValues()
-        {
-            return val;
-        }
-
         public double GetValue(int i)
         {
             return val[i];
         }
 
-        public void AddValue(double chisl)
-        {
-            val.Add(chisl);
-            size++;
-        }
-
         public void SetValue(int h, double chislo)
         {
             val[h] = chislo;
-        }
-        public double this[int index]
-        {
-            get { return val[index]; }
-            set { val[index] = value; }
         }
 
 

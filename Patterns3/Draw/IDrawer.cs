@@ -8,10 +8,8 @@ namespace Patterns3.Draw
     {
         public void DrawMatrix();
 
-        public void DrawFrame(int size);
+        public void DrawFrame(IMatrix matrix);
 
-        public void DrawCell(double val, IMatrix matrix);
-
-        public void DrawGorFrame();
+        public void DrawCell(IMatrix matrix, int row, int col);
     }
 }

@@ -9,53 +9,77 @@ namespace Patterns3.Draw
     class WinFormDrawer : IDrawer
     {
         private Graphics graphics;
-        private string matrix_in_str = "";
+        int startX, startY, stepX, stepY;
+        string emptyFormat = "{0, -5:00.00}", not_emptyFormat = "{0,-4:00.00}";
+        List<Rectangle> rectangles = new List<Rectangle>();
+        Pen myPenFrame;
+        List<Point> pointsVal = new List<Point>();
+        List<string> matrix_val = new List<string>();
+        bool frameFlag = false;
 
-        public WinFormDrawer(Graphics graphics_)
+        public WinFormDrawer(Graphics graphics_, Pen penFrame, int startX_ = 10, int startY_ = 10, int stepX_ = 60, int stepY_ = 60)
         {
             graphics = graphics_;
-        }
-        public void DrawCell(double val, IMatrix matrix)
-        {
-            switch (matrix)
-            {
-                case SparseMatrix:
-                    {
-                        if (val == 0)
-                        {
-                            matrix_in_str += String.Format(" {0, -5:00.00} ", "");
-                        }
-                        else
-                        {
-                            matrix_in_str += String.Format("|{0,-4:00.00}|", val);
-                        }
-                        break;
-                    }
-                default:
-                    matrix_in_str += String.Format("|{0,-4:00.00}|", val);
-                    break;
-            }
+            startX = startX_;
+            startY = startY_;
+            stepX = stepX_;
+            stepY = stepY_;
+            myPenFrame = penFrame;
         }
 
-        public void DrawFrame(int size)
+        ~WinFormDrawer()
         {
-            matrix_in_str += "\n ";
-            for (int i = 0; i < size*7; i++)
-            {
-                this.matrix_in_str += "-";
-            }
-            matrix_in_str += "\n";
+            GC.SuppressFinalize(this);
         }
 
         public void DrawMatrix()
         {
-            graphics.DrawString(matrix_in_str, new Font("Courier New", 10.0F), new SolidBrush(Color.Black), new Point(10, 10));
-            matrix_in_str = "";
+            if (rectangles.Count>0)
+            {
+                graphics.DrawRectangles(myPenFrame, rectangles.ToArray());
+            }
+            for (int i = 0; i < pointsVal.Count; i++)
+            {
+                graphics.DrawString(matrix_val[i], new Font("Courier New", 10.0F), new SolidBrush(Color.Black), pointsVal[i]);
+            }
         }
 
-        public void DrawGorFrame()
+        public void DrawFrame(IMatrix matrix)
         {
-            this.matrix_in_str += "|";
+            rectangles.Add(new Rectangle(startX, startY, stepX * matrix.column_count, stepY * matrix.row_count));
+            frameFlag = true;
+        }
+
+        public void DrawCell(IMatrix matrix, int row, int col)
+        {
+            switch (matrix)
+            {
+                
+                case SparseMatrix:
+                    {
+                        if (matrix.GetValue(row, col) == 0)
+                        {
+                            matrix_val.Add(string.Format( emptyFormat, ""));
+                        }
+                        else
+                        {
+                            matrix_val.Add(string.Format(not_emptyFormat, matrix.GetValue(row, col)));
+                            if (frameFlag)
+                            {
+                                rectangles.Add(new Rectangle(startX + stepX * row, startY + stepY * col, stepX, stepY));
+                            }
+                        }
+                        break;
+                    }
+                default:
+                    matrix_val.Add(string.Format(not_emptyFormat, matrix.GetValue(row, col)));
+                    if (frameFlag)
+                    {
+                        rectangles.Add(new Rectangle(startX + stepX * row, startY + stepY * col, stepX, stepY));
+                    }
+                    break;
+            }
+            pointsVal.Add(new Point(startX + stepX * row, (stepY / 2)+ startY + stepY * col));
         }
     }
 }

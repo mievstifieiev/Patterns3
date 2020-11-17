@@ -18,7 +18,7 @@ namespace Patterns3
                     {
                     if (until != 0)
                     {
-                        sm.SetValue(rnd.Next(0, 100), i, j);
+                        sm.SetValue(rnd.Next(0, max), i, j);
                         until--;
                     }
                     else
