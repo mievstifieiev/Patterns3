@@ -1,0 +1,15 @@
+C:\Users\PS\source\repos\Patterns3\Patterns3\obj\Debug\netcoreapp3.1\Patterns3.csprojAssemblyReference.cache
+C:\Users\PS\source\repos\Patterns3\Patterns3\obj\Debug\netcoreapp3.1\Patterns3.Form1.resources
+C:\Users\PS\source\repos\Patterns3\Patterns3\obj\Debug\netcoreapp3.1\Patterns3.csproj.GenerateResource.cache
+C:\Users\PS\source\repos\Patterns3\Patterns3\obj\Debug\netcoreapp3.1\Patterns3.AssemblyInfoInputs.cache
+C:\Users\PS\source\repos\Patterns3\Patterns3\obj\Debug\netcoreapp3.1\Patterns3.AssemblyInfo.cs
+C:\Users\PS\source\repos\Patterns3\Patterns3\obj\Debug\netcoreapp3.1\Patterns3.csproj.CoreCompileInputs.cache
+C:\Users\PS\source\repos\Patterns3\Patterns3\bin\Debug\netcoreapp3.1\Patterns3.exe
+C:\Users\PS\source\repos\Patterns3\Patterns3\bin\Debug\netcoreapp3.1\Patterns3.deps.json
+C:\Users\PS\source\repos\Patterns3\Patterns3\bin\Debug\netcoreapp3.1\Patterns3.runtimeconfig.json
+C:\Users\PS\source\repos\Patterns3\Patterns3\bin\Debug\netcoreapp3.1\Patterns3.runtimeconfig.dev.json
+C:\Users\PS\source\repos\Patterns3\Patterns3\bin\Debug\netcoreapp3.1\Patterns3.dll
+C:\Users\PS\source\repos\Patterns3\Patterns3\bin\Debug\netcoreapp3.1\Patterns3.pdb
+C:\Users\PS\source\repos\Patterns3\Patterns3\obj\Debug\netcoreapp3.1\Patterns3.dll
+C:\Users\PS\source\repos\Patterns3\Patterns3\obj\Debug\netcoreapp3.1\Patterns3.pdb
+C:\Users\PS\source\repos\Patterns3\Patterns3\obj\Debug\netcoreapp3.1\Patterns3.genruntimeconfig.cache

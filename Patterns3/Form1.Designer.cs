@@ -1,0 +1,191 @@
+﻿namespace Patterns3
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_Col = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_Row = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tb_NoNull = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tb_MaxVal = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.bt_SimpMatr = new System.Windows.Forms.Button();
+            this.bt_SpareMatr = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(471, 426);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(517, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Размерность матрицы";
+            // 
+            // tb_Col
+            // 
+            this.tb_Col.Location = new System.Drawing.Point(517, 66);
+            this.tb_Col.Name = "tb_Col";
+            this.tb_Col.Size = new System.Drawing.Size(54, 27);
+            this.tb_Col.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(591, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "на";
+            // 
+            // tb_Row
+            // 
+            this.tb_Row.Location = new System.Drawing.Point(638, 66);
+            this.tb_Row.Name = "tb_Row";
+            this.tb_Row.Size = new System.Drawing.Size(60, 27);
+            this.tb_Row.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(517, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(247, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Количество ненулевых элементов";
+            // 
+            // tb_NoNull
+            // 
+            this.tb_NoNull.Location = new System.Drawing.Point(517, 148);
+            this.tb_NoNull.Name = "tb_NoNull";
+            this.tb_NoNull.Size = new System.Drawing.Size(125, 27);
+            this.tb_NoNull.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(517, 194);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(253, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Максимальное значение элемента";
+            // 
+            // tb_MaxVal
+            // 
+            this.tb_MaxVal.Location = new System.Drawing.Point(517, 229);
+            this.tb_MaxVal.Name = "tb_MaxVal";
+            this.tb_MaxVal.Size = new System.Drawing.Size(125, 27);
+            this.tb_MaxVal.TabIndex = 8;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(517, 262);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(157, 24);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "Граница матрицы";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // bt_SimpMatr
+            // 
+            this.bt_SimpMatr.Location = new System.Drawing.Point(517, 327);
+            this.bt_SimpMatr.Name = "bt_SimpMatr";
+            this.bt_SimpMatr.Size = new System.Drawing.Size(100, 71);
+            this.bt_SimpMatr.TabIndex = 10;
+            this.bt_SimpMatr.Text = "Нарисовать обычную матрицу";
+            this.bt_SimpMatr.UseVisualStyleBackColor = true;
+            this.bt_SimpMatr.Click += new System.EventHandler(this.bt_SimpMatr_Click);
+            // 
+            // bt_SpareMatr
+            // 
+            this.bt_SpareMatr.Location = new System.Drawing.Point(638, 327);
+            this.bt_SpareMatr.Name = "bt_SpareMatr";
+            this.bt_SpareMatr.Size = new System.Drawing.Size(126, 71);
+            this.bt_SpareMatr.TabIndex = 12;
+            this.bt_SpareMatr.Text = "Нарисовать разреженную матрицу";
+            this.bt_SpareMatr.UseVisualStyleBackColor = true;
+            this.bt_SpareMatr.Click += new System.EventHandler(this.bt_SpareMatr_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(803, 450);
+            this.Controls.Add(this.bt_SpareMatr);
+            this.Controls.Add(this.bt_SimpMatr);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.tb_MaxVal);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tb_NoNull);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tb_Row);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tb_Col);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Name = "Form1";
+            this.Text = "Граница матрицы";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tb_Col;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tb_Row;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tb_NoNull;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tb_MaxVal;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button bt_SimpMatr;
+        private System.Windows.Forms.Button bt_SpareMatr;
+    }
+}
+
