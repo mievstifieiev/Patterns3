@@ -10,20 +10,41 @@ namespace Patterns3
     {
         private readonly int row, col;
         private IVector[] matr;
+        public virtual IMatrix Matrix => this;
+
+        protected SomeMatrix()
+        {
+
+        }
 
         public void Draw(IDrawer drawer, bool flag)
+        {
+            DrawFrame(drawer, flag);
+            DrawCells(drawer);
+            DrawMatrix(drawer);
+        }
+
+        protected void DrawFrame(IDrawer drawer, bool flag)
         {
             if (flag)
             {
                 drawer.DrawFrame(this);
             }
-            for (int i = 0; i < row; i++)
+        }
+
+        protected void DrawCells(IDrawer drawer)
+        {
+            for (int i = 0; i < this.Row_count; i++)
             {
-                for (int j = 0; j < col; j++)
+                for (int j = 0; j < this.Column_count; j++)
                 {
                     drawer.DrawCell(this, i, j);
                 }
             }
+        }
+
+        protected void DrawMatrix(IDrawer drawer)
+        {
             drawer.DrawMatrix();
         }
 
@@ -40,17 +61,17 @@ namespace Patterns3
 
         protected abstract IVector Create(int co);
       
-        public int row_count { get { return row; } }
-        public int column_count { get { return col; } }
+        public virtual int Row_count { get { return row; } }
+        public virtual int Column_count { get { return col; } }
 
-        public void SetValue(double chisl, int i, int j)
+        public virtual void SetValue(double chisl, int i, int j)
         {
-            matr[i].SetValue(j, chisl);
+            matr[j].SetValue(i, chisl);
         }
 
-        public double GetValue(int i, int j)
+        public virtual double GetValue(int i, int j)
         {
-            return (matr[i].GetValue(j));
+            return (matr[j].GetValue(i));
         }
     }
 }

@@ -46,13 +46,13 @@ namespace Patterns3.Draw
 
         public void DrawFrame(IMatrix matrix)
         {
-            rectangles.Add(new Rectangle(startX, startY, stepX * matrix.column_count, stepY * matrix.row_count));
+            rectangles.Add(new Rectangle(startX, startY, stepX * matrix.Column_count, stepY * matrix.Row_count));
             frameFlag = true;
         }
 
         public void DrawCell(IMatrix matrix, int row, int col)
         {
-            switch (matrix)
+            switch (matrix.Matrix)
             {
                 
                 case SparseMatrix:

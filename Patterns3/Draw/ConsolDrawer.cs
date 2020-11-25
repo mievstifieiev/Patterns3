@@ -10,8 +10,6 @@ namespace Patterns3.Draw
         private bool frame_flag = false;
         private int size_col;
 
-        public string Matrix_in_str { get => matrix_in_str; set => matrix_in_str = value; }
-
         public void DrawMatrix()
         {
             if (frame_flag)
@@ -25,7 +23,7 @@ namespace Patterns3.Draw
         public void DrawFrame(IMatrix matrix)
         {
             frame_flag = true;
-            size_col = matrix.column_count;
+            size_col = matrix.Column_count;
         }
 
         public void DrawConsolLineFrame(int size)
@@ -45,7 +43,7 @@ namespace Patterns3.Draw
                 DrawConsolLineFrame(size_col);
                 DrawVertConsolFrame();
             }
-            switch (matrix)
+            switch (matrix.Matrix)
             {
                 case SparseMatrix:
                     {

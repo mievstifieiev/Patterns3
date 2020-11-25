@@ -12,8 +12,8 @@ namespace Patterns3
         public int NotNulCount { get; }
         public StatisticMatrix(SomeMatrix some)
         {
-            for (int i = 0; i < some.row_count;i++ )
-                for (int j = 0; j < some.column_count; j++)
+            for (int i = 0; i < some.Row_count;i++ )
+                for (int j = 0; j < some.Column_count; j++)
                 {
                     SumAllElements += some.GetValue(i, j);
                     if (some.GetValue(i, j)> MaxVal)
@@ -26,7 +26,7 @@ namespace Patterns3
                     }
                 }
 
-            AverageVal = SumAllElements / (some.row_count * some.column_count);
+            AverageVal = SumAllElements / (some.Row_count * some.Column_count);
             
         }
 

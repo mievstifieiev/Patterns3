@@ -40,6 +40,8 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.bt_SimpMatr = new System.Windows.Forms.Button();
             this.bt_SpareMatr = new System.Windows.Forms.Button();
+            this.bt_Renum = new System.Windows.Forms.Button();
+            this.bt_Restore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,7 +131,7 @@
             // 
             // bt_SimpMatr
             // 
-            this.bt_SimpMatr.Location = new System.Drawing.Point(517, 327);
+            this.bt_SimpMatr.Location = new System.Drawing.Point(517, 292);
             this.bt_SimpMatr.Name = "bt_SimpMatr";
             this.bt_SimpMatr.Size = new System.Drawing.Size(100, 71);
             this.bt_SimpMatr.TabIndex = 10;
@@ -139,7 +141,7 @@
             // 
             // bt_SpareMatr
             // 
-            this.bt_SpareMatr.Location = new System.Drawing.Point(638, 327);
+            this.bt_SpareMatr.Location = new System.Drawing.Point(638, 292);
             this.bt_SpareMatr.Name = "bt_SpareMatr";
             this.bt_SpareMatr.Size = new System.Drawing.Size(126, 71);
             this.bt_SpareMatr.TabIndex = 12;
@@ -147,11 +149,33 @@
             this.bt_SpareMatr.UseVisualStyleBackColor = true;
             this.bt_SpareMatr.Click += new System.EventHandler(this.bt_SpareMatr_Click);
             // 
+            // bt_Renum
+            // 
+            this.bt_Renum.Location = new System.Drawing.Point(517, 370);
+            this.bt_Renum.Name = "bt_Renum";
+            this.bt_Renum.Size = new System.Drawing.Size(166, 30);
+            this.bt_Renum.TabIndex = 13;
+            this.bt_Renum.Text = "Перенумеровать";
+            this.bt_Renum.UseVisualStyleBackColor = true;
+            this.bt_Renum.Click += new System.EventHandler(this.bt_Renum_Click);
+            // 
+            // bt_Restore
+            // 
+            this.bt_Restore.Location = new System.Drawing.Point(517, 407);
+            this.bt_Restore.Name = "bt_Restore";
+            this.bt_Restore.Size = new System.Drawing.Size(166, 29);
+            this.bt_Restore.TabIndex = 14;
+            this.bt_Restore.Text = "Восстановить";
+            this.bt_Restore.UseVisualStyleBackColor = true;
+            this.bt_Restore.Click += new System.EventHandler(this.bt_Restore_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 450);
+            this.Controls.Add(this.bt_Restore);
+            this.Controls.Add(this.bt_Renum);
             this.Controls.Add(this.bt_SpareMatr);
             this.Controls.Add(this.bt_SimpMatr);
             this.Controls.Add(this.checkBox1);
@@ -186,6 +210,8 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button bt_SimpMatr;
         private System.Windows.Forms.Button bt_SpareMatr;
+        private System.Windows.Forms.Button bt_Renum;
+        private System.Windows.Forms.Button bt_Restore;
     }
 }
 
