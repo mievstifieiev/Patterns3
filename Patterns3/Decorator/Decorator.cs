@@ -9,8 +9,9 @@ namespace Patterns3.Decorator
     {
         private IMatrix matrix;
 
-        protected Decorator()
+        public Decorator(IMatrix matrix_)
         {
+            matrix = matrix_;
         }
 
         public void SetMatrix(IMatrix matrix_)

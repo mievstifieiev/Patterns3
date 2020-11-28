@@ -6,57 +6,41 @@ namespace Patterns3.Decorator
 {
     class RenumDecorator : Decorator
     {
-        int row1, row2, col1, col2;
-
-        public RenumDecorator():base()
+        int[] rows;
+        int[] columns;
+        public RenumDecorator(IMatrix matrix):base(matrix)
         {
-            CancelRenum();
+
         }
 
         public void RenumThis(int row1_, int row2_, int col1_, int col2_)
         {
-            row1 = row1_;
-            row2 = row2_;
-            col1 = col1_;
-            col2 = col2_;
+            CancelRenum();
+            rows[row1_] = row2_;
+            rows[row2_] = row1_;
+
+            columns[col1_] = col2_;
+            columns[col2_] = col1_;
         }
 
         public void CancelRenum()
         {
-            row1 = -1;
-            row2 = -1;
-            col1 = -1;
-            col2 = -1;
+            rows = new int[Row_count];
+            for (int i = 0; i < Row_count; i++)
+            {
+                rows[i] = i;
+            }
+
+            columns = new int[Column_count];
+            for (int i = 0; i < Column_count; i++)
+            {
+                columns[i] = i;
+            }
         }
 
         public override double GetValue(int i, int j)
         {
-            int newI, newJ;
-            if (row1 == i)
-            {
-                newI = row2;
-            }
-            else if (row2 == i)
-            {
-                newI = row1;
-            }
-            else
-            {
-                newI = i;
-            }
-            if (col1 == j)
-            {
-                newJ = col2;
-            }
-            else if (col2 == j)
-            {
-                newJ = col1;
-            }
-            else
-            {
-                newJ = j;
-            }
-            return Matrix.GetValue(newI, newJ);
+            return Matrix.GetValue(rows[i], columns[j]);
         }
 
         protected override IVector Create(int co)

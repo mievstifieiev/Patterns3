@@ -24,7 +24,6 @@ namespace Patterns3
         {
             InitializeComponent();
             graphics = pictureBox1.CreateGraphics();
-            renumDecorator = new RenumDecorator();
         }
 
         private void bt_SimpMatr_Click(object sender, EventArgs e)
@@ -35,7 +34,7 @@ namespace Patterns3
             {
                 matrix = new SimpleMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
-                renumDecorator.SetMatrix(matrix);
+                renumDecorator = new RenumDecorator(matrix);
                 renumDecorator.Draw(drawer, checkBox1.Checked);
 
             }
@@ -55,7 +54,7 @@ namespace Patterns3
             {
                 matrix = new SparseMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
-                renumDecorator.SetMatrix(matrix);
+                renumDecorator = new RenumDecorator(matrix);
                 renumDecorator.Draw(drawer, checkBox1.Checked);
             }
             else if (matrix.GetType() == typeof(SparseMatrix))
