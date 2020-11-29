@@ -47,15 +47,19 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(471, 426);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(517, 25);
             this.label1.Name = "label1";
@@ -65,6 +69,7 @@
             // 
             // tb_Col
             // 
+            this.tb_Col.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_Col.Location = new System.Drawing.Point(517, 66);
             this.tb_Col.Name = "tb_Col";
             this.tb_Col.Size = new System.Drawing.Size(54, 27);
@@ -72,6 +77,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(591, 73);
             this.label2.Name = "label2";
@@ -81,6 +87,7 @@
             // 
             // tb_Row
             // 
+            this.tb_Row.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_Row.Location = new System.Drawing.Point(638, 66);
             this.tb_Row.Name = "tb_Row";
             this.tb_Row.Size = new System.Drawing.Size(60, 27);
@@ -88,6 +95,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(517, 113);
             this.label3.Name = "label3";
@@ -97,6 +105,7 @@
             // 
             // tb_NoNull
             // 
+            this.tb_NoNull.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_NoNull.Location = new System.Drawing.Point(517, 148);
             this.tb_NoNull.Name = "tb_NoNull";
             this.tb_NoNull.Size = new System.Drawing.Size(125, 27);
@@ -104,6 +113,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(517, 194);
             this.label4.Name = "label4";
@@ -113,6 +123,7 @@
             // 
             // tb_MaxVal
             // 
+            this.tb_MaxVal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_MaxVal.Location = new System.Drawing.Point(517, 229);
             this.tb_MaxVal.Name = "tb_MaxVal";
             this.tb_MaxVal.Size = new System.Drawing.Size(125, 27);
@@ -120,6 +131,7 @@
             // 
             // checkBox1
             // 
+            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(517, 262);
             this.checkBox1.Name = "checkBox1";
@@ -131,6 +143,7 @@
             // 
             // bt_SimpMatr
             // 
+            this.bt_SimpMatr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bt_SimpMatr.Location = new System.Drawing.Point(517, 292);
             this.bt_SimpMatr.Name = "bt_SimpMatr";
             this.bt_SimpMatr.Size = new System.Drawing.Size(100, 71);
@@ -141,6 +154,7 @@
             // 
             // bt_SpareMatr
             // 
+            this.bt_SpareMatr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bt_SpareMatr.Location = new System.Drawing.Point(638, 292);
             this.bt_SpareMatr.Name = "bt_SpareMatr";
             this.bt_SpareMatr.Size = new System.Drawing.Size(126, 71);
@@ -151,6 +165,7 @@
             // 
             // bt_Renum
             // 
+            this.bt_Renum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bt_Renum.Location = new System.Drawing.Point(517, 370);
             this.bt_Renum.Name = "bt_Renum";
             this.bt_Renum.Size = new System.Drawing.Size(166, 30);
@@ -161,6 +176,7 @@
             // 
             // bt_Restore
             // 
+            this.bt_Restore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bt_Restore.Location = new System.Drawing.Point(517, 407);
             this.bt_Restore.Name = "bt_Restore";
             this.bt_Restore.Size = new System.Drawing.Size(166, 29);

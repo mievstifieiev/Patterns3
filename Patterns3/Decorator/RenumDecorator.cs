@@ -10,7 +10,7 @@ namespace Patterns3.Decorator
         int[] columns;
         public RenumDecorator(IMatrix matrix):base(matrix)
         {
-
+            CancelRenum();
         }
 
         public void RenumThis(int row1_, int row2_, int col1_, int col2_)

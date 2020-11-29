@@ -29,6 +29,7 @@ namespace Patterns3
         private void bt_SimpMatr_Click(object sender, EventArgs e)
         {
             graphics.Clear(BackColor);
+            graphics = pictureBox1.CreateGraphics();
             drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
             if ((last_f == "") || !(matrix.GetType() == typeof(SimpleMatrix)))
             {
@@ -49,6 +50,7 @@ namespace Patterns3
         private void bt_SpareMatr_Click(object sender, EventArgs e)
         {
             graphics.Clear(BackColor);
+            graphics = pictureBox1.CreateGraphics();
             drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
             if ((last_f == "") || !(matrix.GetType() == typeof(SparseMatrix)))
             {
