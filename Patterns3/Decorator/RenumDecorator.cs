@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Patterns3.Draw;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,12 +11,14 @@ namespace Patterns3.Decorator
         int[] columns;
         public RenumDecorator(IMatrix matrix):base(matrix)
         {
-            CancelRenum();
+            if (matrix != null)
+            {
+                CancelRenum();
+            }
         }
 
         public void RenumThis(int row1_, int row2_, int col1_, int col2_)
         {
-            CancelRenum();
             rows[row1_] = row2_;
             rows[row2_] = row1_;
 
@@ -43,9 +46,34 @@ namespace Patterns3.Decorator
             return Matrix.GetValue(rows[i], columns[j]);
         }
 
-        protected override IVector Create(int co)
+        public override void Draw(IDrawer drawer, bool flag)
         {
-            throw new NotImplementedException(); //заглушка, т.к. этот метод не используется в декораторе
+            DrawFrame(drawer, flag);
+            DrawCells(drawer);
+            DrawMatrix(drawer);
+        }
+        protected override void DrawFrame(IDrawer drawer, bool flag)
+        {
+            if (flag)
+            {
+                drawer.DrawFrame(this);
+            }
+        }
+
+        protected override void DrawCells(IDrawer drawer)
+        {
+            for (int i = 0; i < this.Row_count; i++)
+            {
+                for (int j = 0; j < this.Column_count; j++)
+                {
+                    drawer.DrawCell(this, i, j);
+                }
+            }
+        }
+
+        protected override void DrawMatrix(IDrawer drawer)
+        {
+            drawer.DrawMatrix();
         }
     }
 }

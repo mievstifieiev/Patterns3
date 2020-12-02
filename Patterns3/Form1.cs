@@ -16,7 +16,7 @@ namespace Patterns3
     {
         Graphics graphics;
         string last_f = "";
-        SomeMatrix matrix;
+        IMatrix matrix;
         RenumDecorator renumDecorator;
         IDrawer drawer;
         /// </summary>

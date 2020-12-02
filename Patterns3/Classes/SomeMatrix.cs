@@ -12,11 +12,6 @@ namespace Patterns3
         private IVector[] matr;
         public virtual IMatrix Matrix => this;
 
-        protected SomeMatrix()
-        {
-
-        }
-
         public void Draw(IDrawer drawer, bool flag)
         {
             DrawFrame(drawer, flag);

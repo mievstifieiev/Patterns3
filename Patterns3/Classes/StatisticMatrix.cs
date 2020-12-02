@@ -10,7 +10,7 @@ namespace Patterns3
         public double AverageVal { get; }
         public double MaxVal { get; }
         public int NotNulCount { get; }
-        public StatisticMatrix(SomeMatrix some)
+        public StatisticMatrix(IMatrix some)
         {
             for (int i = 0; i < some.Row_count;i++ )
                 for (int j = 0; j < some.Column_count; j++)
