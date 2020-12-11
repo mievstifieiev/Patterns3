@@ -43,23 +43,15 @@ namespace Patterns3.Draw
                 DrawConsolLineFrame(size_col);
                 DrawVertConsolFrame();
             }
-            switch (matrix.Matrix)
+            bool SPCellFlag = (matrix.Strategy.GetCell(matrix, row, col) == String.Format("{0, -5:00.00}", ""));
+            if (SPCellFlag)
             {
-                case SparseMatrix:
-                    {
-                        if (matrix.GetValue(row, col) == 0)
-                        {
-                            matrix_in_str += String.Format(" {0, -5:00.00} ", "");
-                        }
-                        else
-                        {
-                            matrix_in_str += String.Format("|{0,-4:00.00}|", matrix.GetValue(row, col));
-                        }
-                        break;
-                    }
-                default:
-                    matrix_in_str += String.Format("|{0,-4:00.00}|", matrix.GetValue(row, col));
-                    break;
+                DrawVertConsolFrame();
+            }
+            matrix_in_str += matrix.Strategy.GetCell(matrix, row, col);
+            if (SPCellFlag)
+            {
+                DrawVertConsolFrame();
             }
             if ((col == size_col-1) && (frame_flag))
             {

@@ -52,32 +52,13 @@ namespace Patterns3.Draw
 
         public void DrawCell(IMatrix matrix, int row, int col)
         {
-            switch (matrix.Matrix)
+            matrix_val.Add(matrix.Strategy.GetCell(matrix,row,col));
+            if (matrix.Strategy.GetCell(matrix,row,col) != String.Format("{0, -5:00.00}", ""))
             {
-                
-                case SparseMatrix:
-                    {
-                        if (matrix.GetValue(row, col) == 0)
-                        {
-                            matrix_val.Add(string.Format( emptyFormat, ""));
-                        }
-                        else
-                        {
-                            matrix_val.Add(string.Format(not_emptyFormat, matrix.GetValue(row, col)));
-                            if (frameFlag)
-                            {
-                                rectangles.Add(new Rectangle(startX + stepX * row, startY + stepY * col, stepX, stepY));
-                            }
-                        }
-                        break;
-                    }
-                default:
-                    matrix_val.Add(string.Format(not_emptyFormat, matrix.GetValue(row, col)));
-                    if (frameFlag)
-                    {
-                        rectangles.Add(new Rectangle(startX + stepX * row, startY + stepY * col, stepX, stepY));
-                    }
-                    break;
+                if (frameFlag)
+                {
+                    rectangles.Add(new Rectangle(startX + stepX * row, startY + stepY * col, stepX, stepY));
+                }
             }
             pointsVal.Add(new Point(startX + stepX * row, (stepY / 2)+ startY + stepY * col));
         }

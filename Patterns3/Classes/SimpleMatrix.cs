@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Patterns3.Draw;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
+using Patterns3.Strategy;
 
 namespace Patterns3
 {
@@ -9,8 +11,9 @@ namespace Patterns3
     {
         public SimpleMatrix(int r, int c) : base(r, c)
         {
-            
+            Strategy = new SimplMatrixStrategy();
         }
+
 
         protected override IVector Create(int co)
         {

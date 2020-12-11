@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
+using Patterns3.Strategy;
 
 namespace Patterns3
 {
@@ -10,7 +11,18 @@ namespace Patterns3
     {
         private readonly int row, col;
         private IVector[] matr;
-        public virtual IMatrix Matrix => this;
+        private IStrategy strategy;
+
+        public SomeMatrix(int r, int c)
+        {
+            matr = new IVector[r];
+            this.row = r;
+            this.col = c;
+            for (int i = 0; i < r; i++)
+            {
+                matr[i] = Create(c);
+            }
+        }
 
         public void Draw(IDrawer drawer, bool flag)
         {
@@ -43,21 +55,12 @@ namespace Patterns3
             drawer.DrawMatrix();
         }
 
-        public SomeMatrix(int r, int c)
-        {
-            matr = new IVector[r];
-            this.row = r;
-            this.col = c;
-            for (int i = 0; i < r; i++)
-            {
-                matr[i] = Create(c);
-            }
-        }
-
         protected abstract IVector Create(int co);
       
         public virtual int Row_count { get { return row; } }
         public virtual int Column_count { get { return col; } }
+
+        public IStrategy Strategy { get => strategy; set => strategy = value; }
 
         public virtual void SetValue(double chisl, int i, int j)
         {

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Patterns3.Draw;
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
+using Patterns3.Strategy;
 
 namespace Patterns3
 {
@@ -9,7 +11,8 @@ namespace Patterns3
     { 
         public SparseMatrix(int r, int c): base(r,c)
         {
-            
+
+            Strategy = new SparseMatrixStrategy();
         }
 
         protected override IVector Create(int co)

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Patterns3.Decorator
 {
-    class RenumDecorator : Decorator
+    class RenumDecorator : ADecorator
     {
         int[] rows;
         int[] columns;
@@ -43,7 +43,7 @@ namespace Patterns3.Decorator
 
         public override double GetValue(int i, int j)
         {
-            return Matrix.GetValue(rows[i], columns[j]);
+            return matrix.GetValue(rows[i], columns[j]);
         }
 
         public override void Draw(IDrawer drawer, bool flag)
@@ -52,6 +52,7 @@ namespace Patterns3.Decorator
             DrawCells(drawer);
             DrawMatrix(drawer);
         }
+
         protected override void DrawFrame(IDrawer drawer, bool flag)
         {
             if (flag)

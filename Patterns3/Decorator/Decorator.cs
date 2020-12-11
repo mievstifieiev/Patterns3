@@ -2,14 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Patterns3.Strategy;
 
 namespace Patterns3.Decorator
 {
-    abstract class Decorator : IMatrix
+    abstract class ADecorator : IMatrix
     {
         protected IMatrix matrix;
 
-        public Decorator(IMatrix matrix_)
+        public ADecorator(IMatrix matrix_)
         {
             if (matrix_.GetType() == this.GetType())
             {
@@ -56,7 +57,8 @@ namespace Patterns3.Decorator
             }
         }
 
-        public IMatrix Matrix => matrix.Matrix;
+        public IMatrix Matrix { get => matrix;}
+        public IStrategy Strategy { get => matrix.Strategy; set => matrix.Strategy = value; }
 
         public virtual double GetValue(int i, int j)
         {
@@ -79,6 +81,7 @@ namespace Patterns3.Decorator
         }
 
         public abstract void Draw(IDrawer drawer, bool flag);
+
         protected abstract void DrawFrame(IDrawer drawer, bool flag);
 
         protected abstract void DrawCells(IDrawer drawer);

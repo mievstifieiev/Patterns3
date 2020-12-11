@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "F5PRTf6msxhoka7fgLtivAPova61jRSqb5NfCnrc0iGKWzW5N9ayCpwJwAONygjzsLN0ct7SMbl8cFX8AxGTzg==",
+  "dgSpecHash": "akbrgvRn1hr0XRtoeN597fZ5QFCaor8LAELUdvSKsC0enhsZOFINfQmy8bry6zdIoW2I7O284+W0ELuuHBhpvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\PS\\source\\repos\\Patterns3\\Patterns3\\Patterns3.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\PS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\PS\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.10\\microsoft.netcore.app.host.win-x64.3.1.10.nupkg.sha512"
+  ],
   "logs": []
 }
