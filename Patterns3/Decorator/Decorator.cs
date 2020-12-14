@@ -27,7 +27,7 @@ namespace Patterns3.Decorator
             }
         }
 
-        public int Row_count
+        public virtual int Row_count
         {
             get
             {
@@ -42,7 +42,7 @@ namespace Patterns3.Decorator
             }
         }
 
-        public int Column_count
+        public virtual int Column_count
         {
             get
             {
@@ -81,11 +81,5 @@ namespace Patterns3.Decorator
         }
 
         public abstract void Draw(IDrawer drawer, bool flag);
-
-        protected abstract void DrawFrame(IDrawer drawer, bool flag);
-
-        protected abstract void DrawCells(IDrawer drawer);
-
-        protected abstract void DrawMatrix(IDrawer drawer);
     }
 }

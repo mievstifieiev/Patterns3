@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Patterns3.Draw;
 using Patterns3.Decorator;
+using Patterns3.HGMatrix;
 
 namespace Patterns3
 {
@@ -19,6 +20,8 @@ namespace Patterns3
         IMatrix matrix;
         RenumDecorator renumDecorator;
         IDrawer drawer;
+        HGMatrix.HGMatrix gMatrix;
+        TransponseDecorator transponse;
         /// </summary>
         public Form1()
         {
@@ -99,9 +102,65 @@ namespace Patterns3
                         bt_SimpMatr_Click(sender, e);
                         break;
                     }
+                case "bt_Add_Simple_Click":
+                    {
+                        bt_Add_Simple_Click(sender, e);
+                        break;
+                    }
+                case "bt_Add_Sparse_Click":
+                    {
+                        bt_Add_Sparse_Click(sender, e);
+                        break;
+                    }
                 default:
                     break;
             }
+        }
+
+        private void bt_HGM_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(BackColor);
+            graphics = pictureBox1.CreateGraphics();
+            gMatrix = new HGMatrix.HGMatrix();
+        }
+
+        private void bt_Add_Simple_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(BackColor);
+            graphics = pictureBox1.CreateGraphics();
+            matrix = new SimpleMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
+            InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
+            gMatrix.SetMatrix(matrix);
+            drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
+            gMatrix.Draw(drawer, checkBox1.Checked);
+            last_f = "bt_Add_Simple_Click";
+        }
+
+        private void bt_Add_Sparse_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(BackColor);
+            graphics = pictureBox1.CreateGraphics();
+            matrix = new SparseMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
+            InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
+            gMatrix.SetMatrix(matrix);
+            drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
+            gMatrix.Draw(drawer, checkBox1.Checked);
+            last_f = "bt_Add_Sparse_Click";
+        }
+
+        private void bt_Transonse_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(BackColor);
+            graphics = pictureBox1.CreateGraphics();
+            transponse = new TransponseDecorator(gMatrix);
+            drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
+            last_f = "bt_Transonse_Click";
+            transponse.Draw(drawer, checkBox1.Checked);
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            SwitchPrev(sender, e);
         }
     }
 }

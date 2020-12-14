@@ -42,6 +42,10 @@
             this.bt_SpareMatr = new System.Windows.Forms.Button();
             this.bt_Renum = new System.Windows.Forms.Button();
             this.bt_Restore = new System.Windows.Forms.Button();
+            this.bt_HGM = new System.Windows.Forms.Button();
+            this.bt_Add_Simple = new System.Windows.Forms.Button();
+            this.bt_Add_Sparse = new System.Windows.Forms.Button();
+            this.bt_Transonse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +57,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(471, 426);
+            this.pictureBox1.Size = new System.Drawing.Size(606, 583);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -61,7 +65,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(517, 25);
+            this.label1.Location = new System.Drawing.Point(652, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 20);
             this.label1.TabIndex = 1;
@@ -70,16 +74,16 @@
             // tb_Col
             // 
             this.tb_Col.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_Col.Location = new System.Drawing.Point(517, 66);
+            this.tb_Col.Location = new System.Drawing.Point(624, 66);
             this.tb_Col.Name = "tb_Col";
-            this.tb_Col.Size = new System.Drawing.Size(54, 27);
+            this.tb_Col.Size = new System.Drawing.Size(82, 27);
             this.tb_Col.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(591, 73);
+            this.label2.Location = new System.Drawing.Point(726, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 20);
             this.label2.TabIndex = 3;
@@ -88,7 +92,7 @@
             // tb_Row
             // 
             this.tb_Row.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_Row.Location = new System.Drawing.Point(638, 66);
+            this.tb_Row.Location = new System.Drawing.Point(773, 66);
             this.tb_Row.Name = "tb_Row";
             this.tb_Row.Size = new System.Drawing.Size(60, 27);
             this.tb_Row.TabIndex = 4;
@@ -97,7 +101,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(517, 113);
+            this.label3.Location = new System.Drawing.Point(624, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(247, 20);
             this.label3.TabIndex = 5;
@@ -106,7 +110,7 @@
             // tb_NoNull
             // 
             this.tb_NoNull.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_NoNull.Location = new System.Drawing.Point(517, 148);
+            this.tb_NoNull.Location = new System.Drawing.Point(624, 148);
             this.tb_NoNull.Name = "tb_NoNull";
             this.tb_NoNull.Size = new System.Drawing.Size(125, 27);
             this.tb_NoNull.TabIndex = 6;
@@ -115,7 +119,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(517, 194);
+            this.label4.Location = new System.Drawing.Point(624, 195);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(253, 20);
             this.label4.TabIndex = 7;
@@ -124,7 +128,7 @@
             // tb_MaxVal
             // 
             this.tb_MaxVal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxVal.Location = new System.Drawing.Point(517, 229);
+            this.tb_MaxVal.Location = new System.Drawing.Point(627, 229);
             this.tb_MaxVal.Name = "tb_MaxVal";
             this.tb_MaxVal.Size = new System.Drawing.Size(125, 27);
             this.tb_MaxVal.TabIndex = 8;
@@ -133,7 +137,7 @@
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(517, 262);
+            this.checkBox1.Location = new System.Drawing.Point(769, 229);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(157, 24);
             this.checkBox1.TabIndex = 9;
@@ -144,9 +148,9 @@
             // bt_SimpMatr
             // 
             this.bt_SimpMatr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_SimpMatr.Location = new System.Drawing.Point(517, 292);
+            this.bt_SimpMatr.Location = new System.Drawing.Point(627, 262);
             this.bt_SimpMatr.Name = "bt_SimpMatr";
-            this.bt_SimpMatr.Size = new System.Drawing.Size(100, 71);
+            this.bt_SimpMatr.Size = new System.Drawing.Size(122, 71);
             this.bt_SimpMatr.TabIndex = 10;
             this.bt_SimpMatr.Text = "Нарисовать обычную матрицу";
             this.bt_SimpMatr.UseVisualStyleBackColor = true;
@@ -155,7 +159,7 @@
             // bt_SpareMatr
             // 
             this.bt_SpareMatr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_SpareMatr.Location = new System.Drawing.Point(638, 292);
+            this.bt_SpareMatr.Location = new System.Drawing.Point(773, 262);
             this.bt_SpareMatr.Name = "bt_SpareMatr";
             this.bt_SpareMatr.Size = new System.Drawing.Size(126, 71);
             this.bt_SpareMatr.TabIndex = 12;
@@ -166,9 +170,9 @@
             // bt_Renum
             // 
             this.bt_Renum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_Renum.Location = new System.Drawing.Point(517, 370);
+            this.bt_Renum.Location = new System.Drawing.Point(627, 339);
             this.bt_Renum.Name = "bt_Renum";
-            this.bt_Renum.Size = new System.Drawing.Size(166, 30);
+            this.bt_Renum.Size = new System.Drawing.Size(140, 36);
             this.bt_Renum.TabIndex = 13;
             this.bt_Renum.Text = "Перенумеровать";
             this.bt_Renum.UseVisualStyleBackColor = true;
@@ -177,19 +181,67 @@
             // bt_Restore
             // 
             this.bt_Restore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_Restore.Location = new System.Drawing.Point(517, 407);
+            this.bt_Restore.Location = new System.Drawing.Point(773, 339);
             this.bt_Restore.Name = "bt_Restore";
-            this.bt_Restore.Size = new System.Drawing.Size(166, 29);
+            this.bt_Restore.Size = new System.Drawing.Size(143, 36);
             this.bt_Restore.TabIndex = 14;
             this.bt_Restore.Text = "Восстановить";
             this.bt_Restore.UseVisualStyleBackColor = true;
             this.bt_Restore.Click += new System.EventHandler(this.bt_Restore_Click);
             // 
+            // bt_HGM
+            // 
+            this.bt_HGM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_HGM.Location = new System.Drawing.Point(627, 396);
+            this.bt_HGM.Name = "bt_HGM";
+            this.bt_HGM.Size = new System.Drawing.Size(289, 29);
+            this.bt_HGM.TabIndex = 15;
+            this.bt_HGM.Text = "Создать группу матриц";
+            this.bt_HGM.UseVisualStyleBackColor = true;
+            this.bt_HGM.Click += new System.EventHandler(this.bt_HGM_Click);
+            // 
+            // bt_Add_Simple
+            // 
+            this.bt_Add_Simple.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_Add_Simple.Location = new System.Drawing.Point(627, 430);
+            this.bt_Add_Simple.Name = "bt_Add_Simple";
+            this.bt_Add_Simple.Size = new System.Drawing.Size(140, 70);
+            this.bt_Add_Simple.TabIndex = 16;
+            this.bt_Add_Simple.Text = "Добавить простую матрицу";
+            this.bt_Add_Simple.UseVisualStyleBackColor = true;
+            this.bt_Add_Simple.Click += new System.EventHandler(this.bt_Add_Simple_Click);
+            // 
+            // bt_Add_Sparse
+            // 
+            this.bt_Add_Sparse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_Add_Sparse.Location = new System.Drawing.Point(773, 431);
+            this.bt_Add_Sparse.Name = "bt_Add_Sparse";
+            this.bt_Add_Sparse.Size = new System.Drawing.Size(143, 69);
+            this.bt_Add_Sparse.TabIndex = 17;
+            this.bt_Add_Sparse.Text = "Добавить разреженную матрицу";
+            this.bt_Add_Sparse.UseVisualStyleBackColor = true;
+            this.bt_Add_Sparse.Click += new System.EventHandler(this.bt_Add_Sparse_Click);
+            // 
+            // bt_Transonse
+            // 
+            this.bt_Transonse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_Transonse.Location = new System.Drawing.Point(627, 507);
+            this.bt_Transonse.Name = "bt_Transonse";
+            this.bt_Transonse.Size = new System.Drawing.Size(289, 29);
+            this.bt_Transonse.TabIndex = 18;
+            this.bt_Transonse.Text = "Транспонировать группу мариц";
+            this.bt_Transonse.UseVisualStyleBackColor = true;
+            this.bt_Transonse.Click += new System.EventHandler(this.bt_Transonse_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 450);
+            this.ClientSize = new System.Drawing.Size(938, 607);
+            this.Controls.Add(this.bt_Transonse);
+            this.Controls.Add(this.bt_Add_Sparse);
+            this.Controls.Add(this.bt_Add_Simple);
+            this.Controls.Add(this.bt_HGM);
             this.Controls.Add(this.bt_Restore);
             this.Controls.Add(this.bt_Renum);
             this.Controls.Add(this.bt_SpareMatr);
@@ -206,6 +258,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Граница матрицы";
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -228,6 +281,10 @@
         private System.Windows.Forms.Button bt_SpareMatr;
         private System.Windows.Forms.Button bt_Renum;
         private System.Windows.Forms.Button bt_Restore;
+        private System.Windows.Forms.Button bt_HGM;
+        private System.Windows.Forms.Button bt_Add_Simple;
+        private System.Windows.Forms.Button bt_Add_Sparse;
+        private System.Windows.Forms.Button bt_Transonse;
     }
 }
 

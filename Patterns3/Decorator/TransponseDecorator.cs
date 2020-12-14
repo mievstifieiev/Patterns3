@@ -5,45 +5,45 @@ using System.Text;
 
 namespace Patterns3.Decorator
 {
-    class RenumDecorator : ADecorator
+    class TransponseDecorator : ADecorator
     {
-        int[] rows;
-        int[] columns;
-        public RenumDecorator(IMatrix matrix):base(matrix)
-        {
-            if (matrix != null)
-            {
-                CancelRenum();
-            }
-        }
-
-        public void RenumThis(int row1_, int row2_, int col1_, int col2_)
-        {
-            rows[row1_] = row2_;
-            rows[row2_] = row1_;
-
-            columns[col1_] = col2_;
-            columns[col2_] = col1_;
-        }
-
-        public void CancelRenum()
-        {
-            rows = new int[Row_count];
-            for (int i = 0; i < Row_count; i++)
-            {
-                rows[i] = i;
-            }
-
-            columns = new int[Column_count];
-            for (int i = 0; i < Column_count; i++)
-            {
-                columns[i] = i;
-            }
-        }
-
         public override double GetValue(int i, int j)
         {
-            return matrix.GetValue(rows[i], columns[j]);
+            return base.GetValue(j, i);
+        }
+
+        public TransponseDecorator(IMatrix matrix_) : base(matrix_)
+        {
+        }
+
+        public override int Row_count
+        {
+            get
+            {
+                if (matrix != null)
+                {
+                    return matrix.Row_count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public override int Column_count
+        {
+            get
+            {
+                if (matrix != null)
+                {
+                    return matrix.Column_count;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
         }
 
         public override void Draw(IDrawer drawer, bool flag)

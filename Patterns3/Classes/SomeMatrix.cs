@@ -52,7 +52,7 @@ namespace Patterns3
 
         protected void DrawMatrix(IDrawer drawer)
         {
-            drawer.DrawMatrix();
+            drawer.DrawMatrix(this);
         }
 
         protected abstract IVector Create(int co);
@@ -69,7 +69,7 @@ namespace Patterns3
 
         public virtual double GetValue(int i, int j)
         {
-            return (matr[j].GetValue(i));
+            return matr[j].GetValue(i);
         }
     }
 }

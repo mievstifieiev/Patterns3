@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Patterns3.Draw
 {
-    class ConsolDrawer:IDrawer
+    class ConsolDrawer : IDrawer
     {
         private string matrix_in_str = "" ;
         private bool frame_flag = false;
         private int size_col;
 
-        public void DrawMatrix()
+        public void DrawMatrix(IMatrix matrix)
         {
             if (frame_flag)
             {

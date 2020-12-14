@@ -6,7 +6,7 @@ namespace Patterns3.Draw
 {
     interface IDrawer
     {
-        public void DrawMatrix();
+        public void DrawMatrix(IMatrix matrix);
 
         public void DrawFrame(IMatrix matrix);
 
