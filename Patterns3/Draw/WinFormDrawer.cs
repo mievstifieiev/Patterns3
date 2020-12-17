@@ -14,8 +14,9 @@ namespace Patterns3.Draw
         Pen myPenFrame;
         List<Point> pointsVal = new List<Point>();
         List<string> matrix_val = new List<string>();
-        bool frameFlag = false;
-        //List<IMatrix> matrices = new List<IMatrix>();
+        bool frame = false;
+
+        public bool Frame { get => frame; set => frame = value; }
 
         public WinFormDrawer(Graphics graphics_, Pen penFrame, int startX_ = 10, int startY_ = 10, int stepX_ = 60, int stepY_ = 60)
         {
@@ -41,52 +42,23 @@ namespace Patterns3.Draw
 
         public void DrawFrame(IMatrix matrix)
         {
-            rectangles.Add(new Rectangle(10, 10, stepX * matrix.Column_count, stepY * matrix.Row_count));
-            frameFlag = true;
+            if (frame)
+            {
+                rectangles.Add(new Rectangle(10, 10, stepX * matrix.Column_count, stepY * matrix.Row_count));
+            }
         }
 
         public void DrawCell(IMatrix matrix, int row, int col)
         {
-            //int real_col = 0;
-            //if (matrices.Count == 0)
-            //{
-            //    matrices.Add(matrix);
-            //}
-            //else if (col >= matrix.Column_count)
-            //{
-            //    real_col = col;
-            //    int k = 0;
-            //    while (real_col>=matrix.Column_count)
-            //    {
-            //        real_col -= matrices[k].Column_count;
-            //        k++;
-            //    }
-            //    bool f = false;
-            //    foreach (var item in matrices)
-            //    {
-            //        if (matrix == item)
-            //        {
-            //            f = true;
-            //        }
-            //    }
-            //    if (!f)
-            //    {
-            //        matrices.Add(matrix);
-            //    }
-            //}
             matrix_val.Add(matrix.Strategy.GetCell(matrix, row, col));
             if (matrix.Strategy.GetCell(matrix, row, col) != string.Format("{0, -5:00.00}", ""))
             {
-                if (frameFlag)
+                if (frame)
                 {
-                    rectangles.Add(new Rectangle(startX + (stepX * row), startY + (stepY * col), stepX, stepY));
+                    rectangles.Add(new Rectangle(startX + (stepX * col), startY + (stepY * row), stepX, stepY));
                 }
             }
-            pointsVal.Add(new Point(startX + (stepX * row), (stepY / 2) + startY + (stepY * col)));
-            if ((matrix.Column_count-1 == col)&&(matrix.Row_count-1 == row))
-            {
-                startX += matrix.Column_count * stepX;
-            }
+            pointsVal.Add(new Point(startX + (stepX * col), (stepY / 2) + startY + (stepY * row)));
         }
     }
 }

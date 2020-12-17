@@ -24,19 +24,16 @@ namespace Patterns3
             }
         }
 
-        public void Draw(IDrawer drawer, bool flag)
+        public void Draw(IDrawer drawer)
         {
-            DrawFrame(drawer, flag);
+            DrawFrame(drawer);
             DrawCells(drawer);
             DrawMatrix(drawer);
         }
 
-        protected void DrawFrame(IDrawer drawer, bool flag)
+        protected void DrawFrame(IDrawer drawer)
         {
-            if (flag)
-            {
-                drawer.DrawFrame(this);
-            }
+            drawer.DrawFrame(this);
         }
 
         protected void DrawCells(IDrawer drawer)
@@ -64,12 +61,12 @@ namespace Patterns3
 
         public virtual void SetValue(double chisl, int i, int j)
         {
-            matr[j].SetValue(i, chisl);
+            matr[i].SetValue(j, chisl);
         }
 
         public virtual double GetValue(int i, int j)
         {
-            return matr[j].GetValue(i);
+            return matr[i].GetValue(j);
         }
     }
 }

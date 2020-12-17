@@ -9,10 +9,13 @@ namespace Patterns3.Draw
         private string matrix_in_str = "" ;
         private bool frame_flag = false;
         private int size_col;
+        private bool frame = false;
+
+        public bool Frame { get => frame; set => frame = value; }
 
         public void DrawMatrix(IMatrix matrix)
         {
-            if (frame_flag)
+            if (frame)
             {
                 DrawConsolLineFrame(size_col);
             }
@@ -38,7 +41,7 @@ namespace Patterns3.Draw
 
         public void DrawCell(IMatrix matrix, int row, int col)
         {
-            if ((col == 0) && (frame_flag))
+            if ((col == 0) && (frame))
             {
                 DrawConsolLineFrame(size_col);
                 DrawVertConsolFrame();
@@ -53,7 +56,7 @@ namespace Patterns3.Draw
             {
                 DrawVertConsolFrame();
             }
-            if ((col == size_col-1) && (frame_flag))
+            if ((col == size_col-1) && (frame))
             {
                 DrawVertConsolFrame();
             }

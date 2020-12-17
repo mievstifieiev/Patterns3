@@ -13,6 +13,6 @@ namespace Patterns3
         public IStrategy Strategy { get; set; }
         public double GetValue(int i, int j);                          //отдает значение матрицы
         public void SetValue(double chisl, int i, int j);                 //записывает значение
-        public void Draw(IDrawer drawer, bool flag);
+        public void Draw(IDrawer drawer); //флаг не нужен в интерфейсе верхнего уровня
     }
 }

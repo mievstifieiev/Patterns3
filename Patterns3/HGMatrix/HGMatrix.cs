@@ -10,15 +10,14 @@ namespace Patterns3.HGMatrix
     class HGMatrix : IMatrix
     {
         private List<IMatrix> matrices = new List<IMatrix>();
-        List<int> ls = new List<int>();
         private IStrategy strategy = new HGMStrategy();
 
-        public int Row_count
+        public virtual int Row_count
         {
             get
             {
                 int max = 0;
-                foreach (var item in matrices)
+                foreach (IMatrix item in matrices)
                 {
                     if (max < item.Row_count)
                     {
@@ -28,12 +27,12 @@ namespace Patterns3.HGMatrix
                 return max;
             }
         }
-        public int Column_count
+        public virtual int Column_count
         {
             get
             {
                 int size = 0;
-                foreach (var item in matrices)
+                foreach (IMatrix item in matrices)
                 {
                     size += item.Column_count;
                 }
@@ -42,84 +41,69 @@ namespace Patterns3.HGMatrix
             }
         }
 
-        public IStrategy Strategy { get => strategy; set => strategy = value; }
+        public virtual IStrategy Strategy { get => strategy; set => strategy = value; }
 
-        public void Draw(IDrawer drawer, bool flag)
+        public virtual void Draw(IDrawer drawer)
         {
-            DrawFrame(drawer, flag);
-            foreach (var item in matrices)
-            {
-                item.Draw(drawer, flag);
-            }
+            DrawFrame(drawer);
+            DrawCells(drawer);
+            DrawMatrix(drawer);
+            
         }
 
         public void SetMatrix(IMatrix matrix)
         {
             matrices.Add(matrix);
-            if (ls.Count > 0)
-            {
-                ls.Add(ls[^1] + matrix.Column_count);
-            }
-            else
-            {
-                ls.Add(matrix.Column_count);
-            }
         }
 
-        protected void DrawFrame(IDrawer drawer, bool flag)
+        private void DrawFrame(IDrawer drawer)
         {
-            if (flag)
+            drawer.DrawFrame(this);
+        }
+
+        private void DrawCells(IDrawer drawer)
+        {
+            for (int i = 0; i < Row_count; i++)
             {
-                drawer.DrawFrame(this);
+                for (int j = 0; j < Column_count; j++)
+                {
+                    int size = 0;
+                    for (int k = 0; k < matrices.Count; k++)
+                    {
+                        size += matrices[k].Column_count;
+                        if (size > j)
+                        {
+                            if (matrices[k].Row_count <= i)
+                            {
+                                strategy = new HGMStrategy();
+                                drawer.DrawCell(this, i, j);
+                                break;
+                            }
+                            strategy = matrices[k].Strategy;
+                            drawer.DrawCell(this, i, j);
+                            break;
+                        }
+                    }
+                    strategy = new HGMStrategy();
+                    drawer.DrawCell(this, i, j);
+
+                }
             }
         }
 
-        //protected void DrawCells(IDrawer drawer)
-        //{
-        //    for (int i = 0; i < this.Row_count; i++)
-        //    {
-        //        for (int j = 0; j < this.Column_count; j++)
-        //        {
-        //            int size = 0;
-        //            bool fl = true;
-        //            for (int k = 0; k < matrices.Count; k++)
-        //            {
-        //                // old_size = size;
-        //                size += matrices[k].Column_count;
-        //                if (size >= j)
-        //                {
-        //                    if (matrices[k].Row_count-1 < i)
-        //                    {
-        //                        drawer.DrawCell(this, i, j);
-        //                        fl = false;
-        //                        break;
-        //                    }
-        //                    drawer.DrawCell(matrices[k], i, j);
-        //                    fl = false;
-        //                    break;
-        //                }
-        //            }
-        //            if (fl)
-        //            {
-        //                drawer.DrawCell(this, i, j);
-        //            }
-        //        }
-        //    }
-        //}
+        private void DrawMatrix(IDrawer drawer)
+        {
+            drawer.DrawMatrix(this);
+        }
 
-        //protected void DrawMatrix(IDrawer drawer)
-        //{
-        //    drawer.DrawMatrix(this);
-        //}
-
-        public double GetValue(int i, int j)
+        public virtual double GetValue(int i, int j)
         {
             int size = 0;
             for (int k = 0; k < matrices.Count; k++)
             {
                 int old_size = size;
                 size += matrices[k].Column_count;
-                if (size>j)
+                if (size > j)
                 {
                     if (matrices[k].Row_count<i)
                     {
@@ -131,7 +115,7 @@ namespace Patterns3.HGMatrix
             return 0;
         }
 
-        public void SetValue(double chisl, int i, int j)
+        public virtual void SetValue(double chisl, int i, int j)
         {
             int size = 0;
             for (int k = 0; k < matrices.Count; k++)
@@ -144,7 +128,7 @@ namespace Patterns3.HGMatrix
                     {
                         return;
                     }
-                    matrices[k].SetValue(chisl,i, j - old_size);
+                    matrices[k].SetValue(chisl, i, j - old_size);
                 }
             }
             return;
