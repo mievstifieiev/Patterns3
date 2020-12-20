@@ -46,19 +46,16 @@ namespace Patterns3.Decorator
             return matrix.GetValue(rows[i], columns[j]);
         }
 
-        public override void Draw(IDrawer drawer, bool flag)
+        public override void Draw(IDrawer drawer)
         {
-            DrawFrame(drawer, flag);
+            DrawFrame(drawer);
             DrawCells(drawer);
             DrawMatrix(drawer);
         }
 
-        protected void DrawFrame(IDrawer drawer, bool flag)
+        protected void DrawFrame(IDrawer drawer)
         {
-            if (flag)
-            {
-                drawer.DrawFrame(this);
-            }
+            drawer.DrawFrame(this);
         }
 
         protected void DrawCells(IDrawer drawer)

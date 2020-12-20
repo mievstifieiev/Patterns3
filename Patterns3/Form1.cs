@@ -19,9 +19,7 @@ namespace Patterns3
         string last_f = "";
         IMatrix matrix;
         RenumDecorator renumDecorator;
-        IDrawer drawer;
         HGMatrix.HGMatrix gMatrix;
-        TransponseDecorator transponse;
         /// </summary>
         public Form1()
         {
@@ -33,18 +31,19 @@ namespace Patterns3
         {
             graphics.Clear(BackColor);
             graphics = pictureBox1.CreateGraphics();
-            drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
+            WinFormDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
+            drawer.Frame = checkBox1.Checked;
             if ((last_f == "") || !(matrix.GetType() == typeof(SimpleMatrix)))
             {
                 matrix = new SimpleMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
                 renumDecorator = new RenumDecorator(matrix);
-                renumDecorator.Draw(drawer, checkBox1.Checked);
+                renumDecorator.Draw(drawer);
 
             }
             else if (matrix.GetType() == typeof(SimpleMatrix))
             {
-                renumDecorator.Draw(drawer, checkBox1.Checked);
+                renumDecorator.Draw(drawer);
 
             }
             last_f = "bt_SimpMatr";
@@ -54,17 +53,18 @@ namespace Patterns3
         {
             graphics.Clear(BackColor);
             graphics = pictureBox1.CreateGraphics();
-            drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
+            WinFormDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
+            drawer.Frame = checkBox1.Checked;
             if ((last_f == "") || !(matrix.GetType() == typeof(SparseMatrix)))
             {
                 matrix = new SparseMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
                 renumDecorator = new RenumDecorator(matrix);
-                renumDecorator.Draw(drawer, checkBox1.Checked);
+                renumDecorator.Draw(drawer);
             }
             else if (matrix.GetType() == typeof(SparseMatrix))
             {
-                renumDecorator.Draw(drawer, checkBox1.Checked);
+                renumDecorator.Draw(drawer);
             }
             last_f = "bt_SpareMatr";
         }
@@ -131,8 +131,9 @@ namespace Patterns3
             matrix = new SimpleMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
             InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
             gMatrix.SetMatrix(matrix);
-            drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
-            gMatrix.Draw(drawer, checkBox1.Checked);
+            WinFormDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
+            drawer.Frame = checkBox1.Checked;
+            gMatrix.Draw(drawer);
             last_f = "bt_Add_Simple_Click";
         }
 
@@ -143,19 +144,10 @@ namespace Patterns3
             matrix = new SparseMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
             InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
             gMatrix.SetMatrix(matrix);
-            drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
-            gMatrix.Draw(drawer, checkBox1.Checked);
+            WinFormDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
+            drawer.Frame = checkBox1.Checked;
+            gMatrix.Draw(drawer);
             last_f = "bt_Add_Sparse_Click";
-        }
-
-        private void bt_Transonse_Click(object sender, EventArgs e)
-        {
-            graphics.Clear(BackColor);
-            graphics = pictureBox1.CreateGraphics();
-            transponse = new TransponseDecorator(gMatrix);
-            drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
-            last_f = "bt_Transonse_Click";
-            transponse.Draw(drawer, checkBox1.Checked);
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)

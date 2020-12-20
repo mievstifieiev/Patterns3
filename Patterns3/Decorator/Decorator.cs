@@ -80,6 +80,6 @@ namespace Patterns3.Decorator
             }
         }
 
-        public abstract void Draw(IDrawer drawer, bool flag);
+        public abstract void Draw(IDrawer drawer);
     }
 }
