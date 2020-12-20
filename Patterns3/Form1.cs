@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Patterns3.Draw;
 using Patterns3.Decorator;
 using Patterns3.HGMatrix;
+using Patterns3.Command;
 
 namespace Patterns3
 {
@@ -20,6 +21,11 @@ namespace Patterns3
         IMatrix matrix;
         RenumDecorator renumDecorator;
         HGMatrix.HGMatrix gMatrix;
+        List<ICommand> commands = new List<ICommand>();
+        List<int> inits_comm_indx = new List<int>();
+        int position = 0;
+        IDrawer drawer;
+        ADecorator Dec;
         /// </summary>
         public Form1()
         {
@@ -31,14 +37,20 @@ namespace Patterns3
         {
             graphics.Clear(BackColor);
             graphics = pictureBox1.CreateGraphics();
-            WinFormDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
-            drawer.Frame = checkBox1.Checked;
+            WinFormDrawer drawer1 = new WinFormDrawer(graphics, new Pen(Color.Red));
+            drawer1.Frame = checkBox1.Checked;
+            drawer = drawer1;
             if ((last_f == "") || !(matrix.GetType() == typeof(SimpleMatrix)))
             {
                 matrix = new SimpleMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
                 renumDecorator = new RenumDecorator(matrix);
-                renumDecorator.Draw(drawer);
+                Dec = renumDecorator;
+                ICommand command = new InitMatrixCommand(matrix, drawer, Dec, graphics);
+                command.Execute(ref matrix, ref drawer, ref Dec, ref graphics);
+                position++;
+                commands.Add(command);
+                inits_comm_indx.Add(position);
 
             }
             else if (matrix.GetType() == typeof(SimpleMatrix))
@@ -53,14 +65,20 @@ namespace Patterns3
         {
             graphics.Clear(BackColor);
             graphics = pictureBox1.CreateGraphics();
-            WinFormDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
-            drawer.Frame = checkBox1.Checked;
+            WinFormDrawer drawer1 = new WinFormDrawer(graphics, new Pen(Color.Red));
+            drawer1.Frame = checkBox1.Checked;
+            drawer = drawer1;
             if ((last_f == "") || !(matrix.GetType() == typeof(SparseMatrix)))
             {
                 matrix = new SparseMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
                 InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
                 renumDecorator = new RenumDecorator(matrix);
-                renumDecorator.Draw(drawer);
+                Dec = renumDecorator;
+                ICommand command = new InitMatrixCommand(matrix, drawer, Dec, graphics );
+                command.Execute(ref matrix,ref drawer,ref Dec, ref graphics);
+                position++;
+                commands.Add(command);
+                inits_comm_indx.Add(position);
             }
             else if (matrix.GetType() == typeof(SparseMatrix))
             {
@@ -77,15 +95,29 @@ namespace Patterns3
 
         private void bt_Renum_Click(object sender, EventArgs e)
         {
+            graphics.Clear(BackColor);
+            graphics = pictureBox1.CreateGraphics();
             Random random = new Random();
             renumDecorator.RenumThis(random.Next(0, renumDecorator.Row_count), random.Next(0, renumDecorator.Row_count), random.Next(0, renumDecorator.Column_count), random.Next(0, renumDecorator.Column_count));
-            SwitchPrev(sender, e);
+            Dec = renumDecorator;
+            ICommand command = new RenumCommand(renumDecorator);
+            command.Execute(ref matrix, ref drawer, ref Dec, ref graphics);
+            commands.Add(command);
+            position++;
+            //SwitchPrev(sender, e);
         }
 
         private void bt_Restore_Click(object sender, EventArgs e)
         {
-            renumDecorator.CancelRenum();
-            SwitchPrev(sender, e);
+            graphics.Clear(BackColor);
+            graphics = pictureBox1.CreateGraphics();
+            renumDecorator.Cancel();
+            ICommand command = new CancelRenum();
+            Dec = renumDecorator;
+            command.Execute(ref matrix, ref drawer, ref Dec, ref graphics);
+            commands.Add(command);
+            position++;
+            //SwitchPrev(sender, e);
         }
 
         public void SwitchPrev(object sender, EventArgs e)
@@ -153,6 +185,26 @@ namespace Patterns3
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             SwitchPrev(sender, e);
+        }
+
+        private void Bt_Cancel_Click(object sender, EventArgs e)
+        {
+            position--;
+            commands.RemoveAt(commands.Count - 1);
+            inits_comm_indx.RemoveAt(inits_comm_indx.Count - 1);
+            for (int i = 0; i < inits_comm_indx.Count; i++)
+            {
+                if (position >= inits_comm_indx[inits_comm_indx.Count-i-1])
+                {
+                    for (int j = inits_comm_indx[i]; j < position; j++)
+                    {
+                        graphics.Clear(BackColor);
+                        commands[j].Execute(ref matrix, ref drawer, ref Dec, ref graphics);
+                        renumDecorator = Dec as RenumDecorator;
+                    }
+                    break;
+                }
+            }
         }
     }
 }

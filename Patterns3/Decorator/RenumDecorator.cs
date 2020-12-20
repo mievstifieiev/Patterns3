@@ -13,7 +13,7 @@ namespace Patterns3.Decorator
         {
             if (matrix != null)
             {
-                CancelRenum();
+                Cancel();
             }
         }
 
@@ -26,7 +26,7 @@ namespace Patterns3.Decorator
             columns[col2_] = col1_;
         }
 
-        public void CancelRenum()
+        public override void Cancel()
         {
             rows = new int[Row_count];
             for (int i = 0; i < Row_count; i++)

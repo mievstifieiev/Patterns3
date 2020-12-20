@@ -7,7 +7,6 @@ namespace Patterns3.Draw
     class ConsolDrawer : IDrawer
     {
         private string matrix_in_str = "" ;
-        private bool frame_flag = false;
         private int size_col;
         private bool frame = false;
 
@@ -25,8 +24,10 @@ namespace Patterns3.Draw
 
         public void DrawFrame(IMatrix matrix)
         {
-            frame_flag = true;
-            size_col = matrix.Column_count;
+            if (frame)
+            {
+                size_col = matrix.Column_count;
+            }
         }
 
         public void DrawConsolLineFrame(int size)

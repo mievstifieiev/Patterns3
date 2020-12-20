@@ -10,6 +10,8 @@ namespace Patterns3.Decorator
     {
         protected IMatrix matrix;
 
+        public abstract void Cancel();
+
         public ADecorator(IMatrix matrix_)
         {
             if (matrix_.GetType() == this.GetType())
