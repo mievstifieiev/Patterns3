@@ -38,6 +38,9 @@ namespace Patterns3.Draw
             {
                 graphics.DrawString(matrix_val[i], new Font("Courier New", 10.0F), new SolidBrush(Color.Black), pointsVal[i]);
             }
+            matrix_val = new List<string>();
+            pointsVal = new List<Point>();
+            rectangles = new List<Rectangle>();
         }
 
         public void DrawFrame(IMatrix matrix)

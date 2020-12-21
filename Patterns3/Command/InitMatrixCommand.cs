@@ -28,7 +28,7 @@ namespace Patterns3.Command
             drawer = drawer1;
             decorator = decorator1;
             graphics = graphics1;
-            decorator.Draw(drawer);
+            matrix.Draw(drawer);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Patterns3
         HGMatrix.HGMatrix gMatrix;
         List<ICommand> commands = new List<ICommand>();
         List<int> inits_comm_indx = new List<int>();
-        int position = 0;
+        int position = -1;
         IDrawer drawer;
         ADecorator Dec;
         /// </summary>
@@ -154,6 +154,10 @@ namespace Patterns3
             graphics.Clear(BackColor);
             graphics = pictureBox1.CreateGraphics();
             gMatrix = new HGMatrix.HGMatrix();
+            ICommand command = new HGMCreateCommand();
+            position++;
+            commands.Add(command);
+            inits_comm_indx.Add(position);
         }
 
         private void bt_Add_Simple_Click(object sender, EventArgs e)
@@ -162,10 +166,20 @@ namespace Patterns3
             graphics = pictureBox1.CreateGraphics();
             matrix = new SimpleMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
             InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
-            gMatrix.SetMatrix(matrix);
-            WinFormDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
-            drawer.Frame = checkBox1.Checked;
-            gMatrix.Draw(drawer);
+            //gMatrix.SetMatrix(matrix);
+            ICommand command = new HGMAddCommand(matrix);
+            WinFormDrawer drawer1 = new WinFormDrawer(graphics, new Pen(Color.Red));
+            drawer1.Frame = checkBox1.Checked;
+            drawer = drawer1;
+            matrix = gMatrix;
+            if (Dec != null)
+            {
+                Dec.Cancel();
+            }
+            command.Execute(ref matrix, ref drawer, ref Dec, ref graphics);
+            position++;
+            commands.Add(command);
+            //inits_comm_indx.Add(position);
             last_f = "bt_Add_Simple_Click";
         }
 
@@ -175,10 +189,20 @@ namespace Patterns3
             graphics = pictureBox1.CreateGraphics();
             matrix = new SparseMatrix(Convert.ToInt32(tb_Col.Text), Convert.ToInt32(tb_Row.Text));
             InitiatorMatrix.RandomMatr(matrix, Convert.ToInt32(tb_NoNull.Text), Convert.ToInt32(tb_MaxVal.Text));
-            gMatrix.SetMatrix(matrix);
-            WinFormDrawer drawer = new WinFormDrawer(graphics, new Pen(Color.Red));
-            drawer.Frame = checkBox1.Checked;
-            gMatrix.Draw(drawer);
+            //gMatrix.SetMatrix(matrix);
+            ICommand command = new HGMAddCommand(matrix);
+            WinFormDrawer drawer1 = new WinFormDrawer(graphics, new Pen(Color.Red));
+            drawer1.Frame = checkBox1.Checked;
+            drawer = drawer1;
+            matrix = gMatrix;
+            if (Dec != null)
+            {
+                Dec.Cancel();
+            }
+            command.Execute(ref matrix, ref drawer, ref Dec, ref graphics);
+            position++;
+            commands.Add(command);
+            //inits_comm_indx.Add(position);
             last_f = "bt_Add_Sparse_Click";
         }
 
@@ -189,18 +213,31 @@ namespace Patterns3
 
         private void Bt_Cancel_Click(object sender, EventArgs e)
         {
-            position--;
-            commands.RemoveAt(commands.Count - 1);
-            inits_comm_indx.RemoveAt(inits_comm_indx.Count - 1);
+            if (position > -1)
+            {
+                //position--;
+                commands.RemoveAt(commands.Count - 1);
+                if (position == inits_comm_indx[inits_comm_indx.Count-1])
+                {
+                    inits_comm_indx.RemoveAt(inits_comm_indx.Count - 1);
+                }
+                position--;
+                //inits_comm_indx.RemoveAt(inits_comm_indx.Count - 1);
+            }
             for (int i = 0; i < inits_comm_indx.Count; i++)
             {
                 if (position >= inits_comm_indx[inits_comm_indx.Count-i-1])
                 {
-                    for (int j = inits_comm_indx[i]; j < position; j++)
+                    for (int j = inits_comm_indx[inits_comm_indx.Count - i - 1]; j <= position; j++)
                     {
                         graphics.Clear(BackColor);
+
                         commands[j].Execute(ref matrix, ref drawer, ref Dec, ref graphics);
                         renumDecorator = Dec as RenumDecorator;
+                        if (matrix is HGMatrix.HGMatrix)
+                        {
+                            gMatrix = matrix as HGMatrix.HGMatrix;
+                        }
                     }
                     break;
                 }
